@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luke Learns The Cloud ☁️</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☁️</text></svg>"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Luke Learns The Cloud ☁️</h1>
+
+    <main>
+      <ul>
+        <li>Namecheap domain pointing to AWS Nameservers</li>
+        <li>
+          static website hosted on an S3 bucket
+          <ul>
+            <li>
+              two buckets: one to host the website (`lukelearnsthe.cloud`) and
+              another one to redirect the subdomain (`www.lukelearnsthe.cloud`)
+              to the root bucket.
+            </li>
+          </ul>
+        </li>
+        <li>SSL Cert via Certification Manager</li>
+        <li>
+          Two CloudFront distributions (one for `lukelearnsthe.cloud`; one for
+          `www.lukelearnsthe.cloud`)
+        </li>
+        <li>Route 53 to route traffic to the CloudFront distributions</li>
+        <li>
+          Restricted S3 bucket access to CloudFront distribution via Origin
+          Access Control (OAC).
+          <ul>
+            <li>
+              With this, you can turn on “Block all public access” to make the
+              S3 bucket reachable only through CloudFront.
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
