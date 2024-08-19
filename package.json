@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "aws:deploy": "aws s3 sync dist/ s3://lukelearnsthe.cloud/ --delete",
+    "aws:deploy": "pnpm build && aws s3 sync dist/ s3://lukelearnsthe.cloud/ --delete",
     "aws:clear-cache": "aws cloudfront create-invalidation --distribution-id E2N6KLWY1L9MPP --paths '/*'"
   },
   "devDependencies": {
