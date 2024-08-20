@@ -108,6 +108,7 @@ a {
 
 #count {
   color: #ee4a00;
+  font-weight: bold;
 }
 
 @media (max-width: 450px) {
