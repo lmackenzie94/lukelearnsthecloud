@@ -1,4 +1,4 @@
-name: Build and Deploy Website to S3
+name: Build and Deploy Website to S3 & CloudFront
 
 on:
   workflow_dispatch:
@@ -7,8 +7,9 @@ on:
       - main
 
 env:
-  BUCKET_NAME: '<example-bucket-name>'
-  AWS_REGION: '<example-aws-region>'
+  BUCKET_NAME: 'lukelearnsthe.cloud'
+  AWS_REGION: 'us-east-1'
+
 # permission can be added at job level or workflow level
 permissions:
   id-token: write # This is required for requesting the JWT
@@ -41,13 +42,15 @@ jobs:
       - name: Build the website
         run: pnpm build
 
-      - name: Deploy to S3
-        uses: jakejarvis/s3-sync-action@master
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          args: --acl private --follow-symlinks --delete
-        env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'us-east-1'
-          SOURCE_DIR: 'dist'
+          role-to-assume: arn:aws:iam::021891593951:role/github-actions-role
+          role-session-name: test-github-actions-role
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Copy dist folder to S3
+        run: |
+          aws s3 sync dist/ s3://${{ env.BUCKET_NAME }}/ --delete
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id E2N6KLWY1L9MPP --paths '/*'
