@@ -9,6 +9,7 @@ on:
 env:
   BUCKET_NAME: 'lukelearnsthe.cloud'
   AWS_REGION: 'us-east-1'
+
 # permission can be added at job level or workflow level
 permissions:
   id-token: write # This is required for requesting the JWT
