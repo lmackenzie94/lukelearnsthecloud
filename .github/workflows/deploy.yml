@@ -42,7 +42,7 @@ jobs:
       - name: Build the website
         run: pnpm build
 
-      - name: configure aws credentials
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::021891593951:role/github-actions-role
