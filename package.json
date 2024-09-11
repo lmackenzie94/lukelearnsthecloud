@@ -4,9 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
+    "dev:docker": "docker compose -f docker-compose.local.yml up -d",
     "build": "tsc && vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --host",
+    "preview:docker": "docker compose up -d",
     "aws:deploy": "pnpm build && aws s3 sync dist/ s3://lukelearnsthe.cloud/ --delete",
     "aws:clear-cache": "aws cloudfront create-invalidation --distribution-id E2N6KLWY1L9MPP --paths '/*'"
   },

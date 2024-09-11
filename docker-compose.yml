@@ -1,0 +1,6 @@
+name: lukelearnsthecloud-prod
+services:
+  web:
+    image: 021891593951.dkr.ecr.us-east-1.amazonaws.com/lukelearnsthecloud:latest
+    ports:
+      - 3000:3000
