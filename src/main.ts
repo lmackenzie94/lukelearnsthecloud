@@ -17,6 +17,8 @@ async function getViewCount() {
     const response = await fetch(
       'https://ynrwjfdti5fzjemn7yxl3cmqkm0ruvnd.lambda-url.us-east-2.on.aws/'
     );
+
+    // TODO: if no items in the table, create one (id: 0, views: 0)
     const data: ViewCountResponse = await response.json();
     const views = data.views;
     viewCount.innerText = views;
