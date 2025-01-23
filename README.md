@@ -1,4 +1,4 @@
-# Luke Learns The Cloud ☁️
+# [Luke Learns The Cloud](https://lukelearnsthe.cloud) ☁️
 
 [![Build and Deploy Website to S3 & CloudFront](https://github.com/lmackenzie94/lukelearnsthecloud/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/lmackenzie94/lukelearnsthecloud/actions/workflows/deploy.yml)
 
