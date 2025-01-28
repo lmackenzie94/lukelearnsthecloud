@@ -9,13 +9,6 @@
 #   id = "lukelearnsthe.cloud"
 # }
 
-# Lambda function
-# TODO: import from us-east-2 or recreate in us-east-1
-# import {
-#   to = aws_lambda_function.website
-#   id = "luke-learns-the-cloud_python"
-# }
-
 # CloudFront distribution
 # import {
 #   to = aws_cloudfront_distribution.website

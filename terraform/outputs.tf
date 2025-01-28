@@ -41,3 +41,15 @@ output "acm_certificate_status" {
   description = "Status of the ACM certificate"
   value       = aws_acm_certificate.website.status
 }
+
+# Lambda
+output "function_name" {
+  description = "Name of the Lambda function."
+  value       = aws_lambda_function.view_counter.function_name
+}
+
+# API Gateway
+output "api_gateway_url" {
+  description = "Base URL for API Gateway stage."
+  value       = aws_apigatewayv2_stage.lambda.invoke_url
+}

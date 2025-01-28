@@ -14,8 +14,9 @@ async function getViewCount() {
   }
 
   try {
+    // TODO: don't hardcode the URL
     const response = await fetch(
-      'https://ynrwjfdti5fzjemn7yxl3cmqkm0ruvnd.lambda-url.us-east-2.on.aws/'
+      'https://2vjgoz7839.execute-api.us-east-1.amazonaws.com/serverless_lambda_stage/view-counter'
     );
 
     // TODO: if no items in the table, create one (id: 0, views: 0)

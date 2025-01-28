@@ -25,14 +25,6 @@ resource "aws_s3_bucket_public_access_block" "website" {
   restrict_public_buckets = true
 }
 
-# Lambda function
-# resource "aws_lambda_function" "website" {
-#   function_name = "${var.app_name}-website-lambda-edge"
-#   filename      = "lambda-edge-function.zip"
-#   handler       = "index.handler"
-#   runtime       = "nodejs18.x"
-# }
-
 # Bucket policy for CloudFront access
 resource "aws_s3_bucket_policy" "website" {
   bucket = aws_s3_bucket.website.id

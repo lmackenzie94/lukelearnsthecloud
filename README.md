@@ -37,3 +37,7 @@ docker push 021891593951.dkr.ecr.us-east-1.amazonaws.com/lukelearnsthecloud:late
 7. Run `terraform apply`
    - The CloudFront distribution will take a while to create (~7 minutes) because it waits for it to deploy
    - To not wait, change `wait_for_deployment` to `false` on the `aws_cloudfront_distribution` resource
+
+#### Adding Lambda Function + API Gateway
+
+- used [this tutorial](https://developer.hashicorp.com/terraform/tutorials/aws/lambda-api-gateway)
